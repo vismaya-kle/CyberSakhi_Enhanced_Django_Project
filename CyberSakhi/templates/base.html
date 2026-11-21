@@ -1,0 +1,14 @@
+{% load static %}
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>{% block title %}CyberSakhi{% endblock %}</title><link rel="stylesheet" href="{% static 'css/style.css' %}"></head>
+<body>
+<nav class="nav"><a class="brand" href="{% url 'home' %}">✦ Cyber<span>Sakhi</span></a><div class="navlinks">
+<a href="{% url 'detector' %}">Scam Checker</a><a href="{% url 'awareness' %}">Awareness</a><a href="{% url 'quiz' %}">Learning Zone</a><a href="{% url 'trends' %}">Scam Trends</a>
+{% if user.is_authenticated %}<a href="{% url 'dashboard' %}">Dashboard</a><a href="{% url 'report_create' %}">Report incident</a><a href="{% url 'saved_guides' %}">Saved guides</a><a href="{% url 'safety_checklist' %}">Safety check</a><form method="post" action="{% url 'logout' %}" style="display:inline">{% csrf_token %}<button class="btn small secondary" type="submit">Logout</button></form>{% else %}<a href="{% url 'login' %}">Login</a><a class="btn small" href="{% url 'register' %}">Get started</a>{% endif %}
+</div></nav>
+<main class="container">
+{% if messages %}<ul class="messages">{% for message in messages %}<li>{{ message }}</li>{% endfor %}</ul>{% endif %}
+{% block content %}{% endblock %}
+</main>
+<footer class="footer">CyberSakhi · Pause, verify, stay safe. <br>Educational prototype — not a substitute for official cybercrime reporting.</footer>
+</body></html>

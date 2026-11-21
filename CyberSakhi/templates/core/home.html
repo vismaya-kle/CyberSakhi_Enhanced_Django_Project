@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block title %}CyberSakhi | Digital Safety Companion{% endblock %}{% block content %}
+<section class="hero"><div><div class="eyebrow">Your digital safety companion</div><h1>Stay aware.<br><span style="color:#7158d9">Stay one step safer.</span></h1><p>Understand online risks, check suspicious messages, learn practical safety habits and keep track of incidents — all in one place.</p><div class="actions"><a class="btn" href="{% url 'detector' %}">Check a suspicious message</a><a class="btn secondary" href="{% url 'awareness' %}">Explore safety guides</a></div></div><div class="hero-art"><div class="shield">🛡️</div><h3>Your safety matters</h3><p class="muted">Think before you click. Verify before you trust.</p></div></section>
+<div class="topline"><h2>What you can do</h2><span class="muted">Simple tools for safer digital habits</span></div>
+<div class="grid">
+<div class="card"><div class="feature-icon">🔎</div><h3>Scam checker</h3><p class="muted">Screen a suspicious URL, message or email for common warning signs.</p><a href="{% url 'detector' %}">Check content →</a></div>
+<div class="card"><div class="feature-icon">📝</div><h3>Incident reporting</h3><p class="muted">Submit an incident privately and receive a reference ID to track it.</p><a href="{% url 'report_create' %}">Report an incident →</a></div>
+<div class="card"><div class="feature-icon">📚</div><h3>Awareness library</h3><p class="muted">Learn how phishing, payment scams and impersonation work.</p><a href="{% url 'awareness' %}">Read guides →</a></div>
+<div class="card"><div class="feature-icon">🎯</div><h3>Learning challenges</h3><p class="muted">Test your knowledge with short practical cybersecurity questions.</p><a href="{% url 'quiz' %}">Take the quiz →</a></div>
+<div class="card"><div class="feature-icon">📊</div><h3>Incident tracking</h3><p class="muted">See the current status of the reports submitted from your account.</p><a href="{% url 'dashboard' %}">Open dashboard →</a></div>
+<div class="card"><div class="feature-icon">💡</div><h3>Safety recommendations</h3><p class="muted">Get practical next steps based on common scam warning signs.</p><a href="{% url 'detector' %}">Get recommendations →</a></div>
+</div>
+<div class="notice" style="margin-top:24px"><b>Need urgent help in India?</b> If money has been lost to cyber fraud, contact your bank immediately and report promptly through the official National Cyber Crime Reporting Portal at cybercrime.gov.in or helpline 1930. Use verified official channels only.</div>
+{% endblock %}

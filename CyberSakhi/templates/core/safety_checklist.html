@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block title %}Personal safety check | CyberSakhi{% endblock %}{% block content %}
+<div class="eyebrow">Personal security habits</div><h2>Your digital safety check</h2><p class="muted">Tick the habits you already follow. Your answers are saved privately to your account.</p>
+<div class="card" style="max-width:760px"><div class="topline"><div><div class="muted">Your safety habits score</div><div class="stat">{{ checklist.score }}%</div></div><span class="pill">{{ checklist.updated_at|date:"d M Y" }}</span></div><div class="score-track"><div class="score-fill" style="width:{{ checklist.score }}%"></div></div><form method="post" style="margin-top:22px">{% csrf_token %}{% for field in form %}<label class="check-row"><span>{{ field }}</span><span>{{ field.label }}</span></label>{% endfor %}<button class="btn" type="submit">Save my checklist</button></form></div>
+<div class="notice" style="margin-top:18px">This score is a self-assessment reminder, not a technical audit or guarantee that your accounts and devices are secure.</div>
+{% endblock %}

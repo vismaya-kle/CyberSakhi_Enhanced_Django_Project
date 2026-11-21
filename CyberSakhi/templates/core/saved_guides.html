@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}Saved guides | CyberSakhi{% endblock %}{% block content %}
+<div class="eyebrow">Your personal library</div><h2>Saved awareness guides</h2><p class="muted">Keep useful safety advice close at hand.</p>
+<div class="grid two">{% for item in saved %}<div class="card"><span class="pill">{{ item.article.category }}</span><h3>{{ item.article.title }}</h3><p class="muted">{{ item.article.summary }}</p><div class="actions"><a class="btn secondary small" href="{% url 'article_detail' item.article.pk %}">Read guide</a><form method="post" action="{% url 'toggle_saved_article' item.article.pk %}">{% csrf_token %}<input type="hidden" name="next" value="saved_guides"><button class="btn small" type="submit">Remove</button></form></div></div>{% empty %}<div class="card">You haven't saved any guides yet. Browse the <a href="{% url 'awareness' %}">awareness library</a> and save useful articles.</div>{% endfor %}</div>
+{% endblock %}

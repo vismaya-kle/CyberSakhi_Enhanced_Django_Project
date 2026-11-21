@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block title %}Dashboard | CyberSakhi{% endblock %}{% block content %}
+<div class="topline"><div><div class="eyebrow">Your space</div><h2>Welcome, {{ user.username }}</h2><p class="muted">Your digital safety activity at a glance.</p></div><a class="btn" href="{% url 'report_create' %}">＋ New report</a></div>
+<div class="grid"><div class="card"><div class="muted">Total reports</div><div class="stat">{{ total }}</div></div><div class="card"><div class="muted">Open reports</div><div class="stat">{{ open_count }}</div></div><div class="card"><div class="muted">Awareness guides</div><div class="stat">{{ articles_count }}</div></div></div>
+<div class="card" style="margin-top:20px"><div class="topline"><h3>Your recent incidents</h3><a href="{% url 'report_create' %}">Submit another →</a></div>
+{% if reports %}<table class="table"><tr><th>Reference</th><th>Incident</th><th>Status</th><th></th></tr>{% for report in reports %}<tr><td>{{ report.reference_id }}</td><td>{{ report.title }}</td><td><span class="pill">{{ report.get_status_display }}</span></td><td><a href="{% url 'report_detail' report.pk %}">View</a></td></tr>{% endfor %}</table>{% else %}<p class="muted">No reports yet. If you experienced or spotted a suspicious incident, you can record it here.</p>{% endif %}</div>
+{% endblock %}
